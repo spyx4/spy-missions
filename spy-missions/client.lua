@@ -115,6 +115,8 @@ function SpawnMissionVehicle()
     end
     missionVehicle = CreateVehicle(GetHashKey(Config.VehicleModel), Config.VehicleSpawnLocation.x, Config.VehicleSpawnLocation.y, Config.VehicleSpawnLocation.z, Config.VehicleSpawnHeading, true, false)
     SetPedIntoVehicle(PlayerPedId(), missionVehicle, -1)
+    TriggerEvent('vehiclekeys:client:SetOwner', QBCore.Functions.GetPlate(veh)) -- qb-vehiclekeys
+    -- TriggerEvent('cd_garage:AddKeys', exports['cd_garage']:GetPlate(missionVehicle)) -- cd_garage keys
 end
 
 function SpawnMissionPed()
