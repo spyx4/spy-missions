@@ -108,15 +108,24 @@ function FinishAllMissions()
     end
 end
 
+function VehicleKeys()
+    if Config.VehicleKeys == 'qb' then
+        TriggerEvent('vehiclekeys:client:SetOwner', QBCore.Functions.GetPlate(missionVehicle))
+    elseif 
+    Config.VehicleKeys == 'cd_garage' then
+        TriggerEvent('cd_garage:AddKeys', exports['cd_garage']:GetPlate(missionVehicle))
+    end
+end
+
 function SpawnMissionVehicle()
     RequestModel(GetHashKey(Config.VehicleModel))
     while not HasModelLoaded(GetHashKey(Config.VehicleModel)) do
         Citizen.Wait(0)
     end
     missionVehicle = CreateVehicle(GetHashKey(Config.VehicleModel), Config.VehicleSpawnLocation.x, Config.VehicleSpawnLocation.y, Config.VehicleSpawnLocation.z, Config.VehicleSpawnHeading, true, false)
+    exports[Config.FuelResource]:SetFuel(missionVehicle, 100.0)
     SetPedIntoVehicle(PlayerPedId(), missionVehicle, -1)
-    TriggerEvent('vehiclekeys:client:SetOwner', QBCore.Functions.GetPlate(veh)) -- qb-vehiclekeys
-    -- TriggerEvent('cd_garage:AddKeys', exports['cd_garage']:GetPlate(missionVehicle)) -- cd_garage keys
+    VehicleKeys()
 end
 
 function SpawnMissionPed()
