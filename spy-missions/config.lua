@@ -49,3 +49,5 @@ Config.Missions = {
 Config.VehicleModel = 'club' -- Model of the vehicle given for the mission
 Config.VehicleSpawnLocation = vector3(-512.6, 6300.34, 10.61) -- Location where the vehicle will spawn
 Config.VehicleSpawnHeading = 90.0 -- Heading for the spawned vehicle
+Config.VehicleKeys = "qb-vehiclekeys" -- "qb-vehiclekeys", "cd_garage"
+Config.FuelResource = 'LegacyFuel' -- supports any that has a GetFuel() and SetFuel() export
