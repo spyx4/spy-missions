@@ -109,7 +109,10 @@ function FinishAllMissions()
 end
 
 function VehicleKeys()
-    if Config.VehicleKeys == 'qb' then
+    if Config.VehicleKeys == 'none' then
+        -- DO NOTHING
+    elseif 
+    Config.VehicleKeys == 'qb' then
         TriggerEvent('vehiclekeys:client:SetOwner', QBCore.Functions.GetPlate(missionVehicle))
     elseif 
     Config.VehicleKeys == 'cd_garage' then
